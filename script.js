@@ -7,14 +7,19 @@ function listen() {
   recognition.start();
 
   recognition.onresult = function (event) {
+    const response = "NFT otherwise known as Non-Fungible Token is a digital file that is recorded on the blockchain. NFT occurs in various categories, namely: digital art, game assets, music, among others. These can be transferred (i.e. ownership) albeit very unique in its own right in contrast to cryptos which are fungible or interchangeable.";
     let transcript = event.results[0][0].transcript;
-    if (transcript.includes("hello")) {
-      outputArea.innerHTML = "Hello, User!";
-      speechSynthesis.speak(new SpeechSynthesisUtterance(transcript));
-    } else if (transcript.includes("weather")) {
-      window.open("https://www.google.com/search?q=weather");
+    if (transcript.includes("What is NFT?")) {
+      speechSynthesis.speak(new SpeechSynthesisUtterance(response));
+    } else if (transcript.includes("Do you have a full documentation?")) {
+      window.open("https://github.com/vintage-creator/ygg");
+
+    } else if (transcript.includes("Web3")) {
+      speechSynthesis.speak(new SpeechSynthesisUtterance("This is the internet our current web is transitioning to - noted for its decentralized and permissonless state - where users can own their contents."));
+      
     } else {
-      outputArea.innerHTML = "I don't know what you mean.";
+      speechSynthesis.speak(new SpeechSynthesisUtterance("You can only search for web3 terms and terminologies."));
+      outputArea.innerHTML = "You can only search for web3 terms and terminologies.";
     }
     inputArea.innerHTML = event.results[0][0].transcript;
   };
