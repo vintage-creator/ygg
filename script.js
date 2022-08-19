@@ -9,7 +9,7 @@ function listen() {
   recognition.onresult = function (event) {
     const response = "Non-Fungible Token commonly called - NFT - is a digital file that is recorded on the blockchain. NFT occurs in various categories, namely: digital art, game assets, music, among others. These can be transferred (i.e. ownership) albeit very unique in its own right in contrast to cryptos which are fungible or interchangeable.";
     let transcript = event.results[0][0].transcript;
-    if (transcript.includes("Non-Fungible Token")) {
+    if (transcript.includes("non-fungible token")) {
       speechSynthesis.speak(new SpeechSynthesisUtterance(response));
     } else if (transcript.includes("full documentation")) {
       window.open("https://github.com/vintage-creator/ygg");
