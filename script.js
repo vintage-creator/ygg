@@ -14,7 +14,7 @@ function listen() {
     } else if (transcript.includes("full documentation")) {
       window.open("https://github.com/vintage-creator/ygg");
 
-    } else if (transcript.includes("web 3")) {
+    } else if (transcript.includes("web 3", "web3")) {
       speechSynthesis.speak(new SpeechSynthesisUtterance("This is the internet our current web is transitioning to - noted for its decentralized and permissonless state - where users can own their contents."));
       
     } else {
