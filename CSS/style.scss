@@ -1,0 +1,945 @@
+$font-style: "Inter", sans-serif;
+$maincolor: #257ebf;
+$accentcolor: #efcf28;
+$margin-left: 1.9em;
+$border-radius: 0.58em;
+
+$desktop: 1285px;
+$desktop-mid: 761px and 1284px;
+$tablet: 760px;
+$tablet-mid: 700px;
+
+@mixin desktop {
+  @media (max-width: #{$desktop}) {
+    @content;
+  }
+}
+@mixin desktop-mid {
+  @media (max-width: #{$desktop-mid}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content; 
+  }
+}
+
+@mixin tablet-mid {
+  @media (max-width: #{$tablet-mid}) {
+    @content; 
+  }
+}
+
+
+
+body,
+html {
+  font-family: $font-style;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+header {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    background-color: white;
+    padding-top: 0.3em;
+    width: 100%;
+    margin-top: -1.65em;
+    border-bottom: 1px solid $maincolor;
+
+    .nav-logo {
+      margin-left: $margin-left;
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    img {
+      width: 23%;
+      
+
+      @include tablet-mid {
+        width: 20%;
+      }
+    }
+
+    .logotxt {
+      width: 38%;
+      padding-bottom: 1em;
+
+      @include tablet-mid {
+        width: 34%;
+      }
+    }
+
+    ul {
+      list-style-type: none;
+      display: flex;
+
+      li {
+        padding-right: 2.5em;
+
+        @include tablet {
+          padding-right: 1.7em;
+
+          @include tablet-mid {
+            padding-right: 1em;
+          }
+        }
+
+        a {
+          text-decoration: none;
+          color: black;
+
+          &:focus {
+            color: $maincolor;
+            font-weight: 700;
+          }
+        }
+      }
+
+      button {
+        background-color: $maincolor;
+        border: $maincolor;
+        color: white;
+        padding: 0.8em;
+        border-radius: $border-radius;
+        margin-top: -2em;
+
+        &:active {
+          background-color: white;
+          color: $maincolor;
+          border: 2px solid $maincolor;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+.background-img {
+  background-image: url("../images/Group 4.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 1.6em;
+
+  #settings-flex {
+    display: flex;
+    justify-content: space-around;
+
+    .lang-abc {
+      border-color: white;
+
+      @include desktop-mid {
+        font-size: 0.95rem;
+        font-weight: 700;
+
+      }
+
+      @include tablet {
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      @include tablet-mid {
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+    }
+
+    img {
+      margin-bottom: -0.3em;
+      padding-left: 0.3em;
+    }
+  }
+
+  .settingsbar {
+    display: none;
+    background-color: white;
+    width: 70vw;
+    z-index: 999;
+    margin: -2em auto;
+    padding: 2em;
+    border-radius: $border-radius;
+    transition: 0.5s ease-in-out;
+
+
+    .close-1 {
+      cursor: pointer;
+      margin-left: 95%;
+      width: 2.8%;
+      background-color: $maincolor;
+      border-radius: 50%;
+      padding: 0.18em;
+
+      @include desktop-mid {
+        margin:-0.7% 95%;
+      }
+
+      @include tablet {
+        margin:-0.3em 30em;
+      }
+
+      @include tablet-mid {
+        margin: -3em 28em 0;
+      }
+    }
+  }
+
+  h1 {
+    padding: 2em;
+    text-align: center;
+    font-size: 2.5rem;
+    color: white;
+
+    span {
+      border-radius: 50%;
+      border: 2px solid $accentcolor;
+      padding: 0.1em;
+    }
+  }
+
+  .input {
+    text-align: center;
+    margin-top: -0.5em;
+
+    submit {
+      background-color: white;
+      border-radius: $border-radius;
+      padding: 0.6em 0.5em 0.6em 0.38em;
+      font-weight: 700;
+      display: block;
+      width: 6%;
+      margin: 0.8em auto;
+      color: $maincolor;
+      font-size: 0.94rem;
+      box-shadow: 0 0.1em 0 lightblue;
+      cursor: pointer;
+
+      @include desktop {
+        width: 9%;
+
+        @include tablet {
+          width: 11%;
+        }
+      }
+
+      &:active {
+        background-color: $maincolor;
+        color: white;
+        background-image: url("../images/search icon1.svg");
+        background-repeat: no-repeat;
+        background-size: 18%;
+        border: 1px solid white;
+        background-position: 14% 50%;
+      }
+
+      img {
+        width: 17%;
+        padding: 1em 0.8em 0em -0.1em;
+        margin-right: 0.2em;
+      }
+    }
+
+    .audiosearch {
+      width: 1.4%;
+      margin: -0.4% -2.6%;
+      cursor: pointer;
+
+
+      @include desktop-mid {
+        width: 2.5%;
+        position:relative;
+        margin:-0.8% -5.3%;
+      }
+
+      @include tablet {
+        width: 2.8%;
+        margin:-0.8% -5.3%;
+      }
+      @include tablet-mid {
+        width:2.8%;
+        margin: -0.8% -5.3%;
+      }
+    }
+
+    #searchbar {
+      margin-left: -4.5%;
+      padding: 0.8em;
+      border-radius: $border-radius;
+      border: 1px solid white;
+      width: 30%;
+      -webkit-transition: width 0.15s ease-in-out;
+      transition: width 0.15s ease-in-out;
+      float: center;
+      outline: none;
+      box-shadow: 0 0.1em 0 lightblue;
+
+      @include desktop-mid {
+        margin-left:-9%;
+        width: 48%;
+      }
+
+      @include tablet {
+        margin-top: -20%;
+        width: 50%;
+
+        @include tablet-mid {
+          margin-left:-9.9%;
+        }
+      }
+
+      &:focus {
+        border: 2px solid $accentcolor;
+      }
+    }
+  }
+
+  #main-container {
+    background-color: white;
+    position: relative;
+    border-radius: $border-radius;
+    padding: 0.3em;
+    width: 50%;
+    margin: -2.5em auto;
+    display: none;
+
+    @include desktop-mid {
+      width: 57%;
+    }
+
+    @include tablet-mid {
+      width: 55%;
+    }
+
+    .search {
+      display: block;
+    }
+
+    input {
+      width: 45%;
+      padding: 0.8em;
+      margin-top: 1em;
+    }
+
+    .close {
+      width: 4%;
+      padding-top: 10px;
+      margin-left: 86%;
+      cursor: pointer;
+    }
+  }
+
+  .flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5em;
+
+    .select-me {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #divspan {
+      margin: 0 -1em 0.1em;
+
+      img {
+        margin-bottom: -0.2em;
+        cursor: pointer;
+      }
+    }
+
+    span {
+      color: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+  }
+
+  select {
+    margin-left: 2em;
+    border-radius: $border-radius;
+    padding: 0.4em;
+    outline: none;
+  }
+}
+
+main {
+
+  .main-p{
+    @include tablet-mid {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    }
+  }
+  .divklass {
+    background-color: lightblue;
+    margin: -1.2em auto;
+    text-align: center;
+    padding-bottom: 4em;
+
+    .img-divklass{
+
+      @include tablet-mid {
+        width: 6%!important;
+        }
+    }
+
+    @include tablet-mid {
+    font-size: 1.1rem;
+    }
+
+    p {
+      padding-bottom: 0.3em;
+    }
+
+    button {
+      color: white;
+      background-color: $maincolor;
+      padding: 0.8em 1em;
+      border: 2px solid $maincolor;
+      box-shadow: 0 0.1em 0 lightblue;
+      border-radius: $border-radius;
+      font-weight: 700;
+      margin-left: 1.2em;
+      cursor: pointer;
+
+      &:active {
+        background-color: white;
+        color: $maincolor;
+        border: 2px solid white;
+        font-weight: 700;
+      }
+    }
+
+    input {
+      border-radius: $border-radius;
+      padding: 0.8em 8em 0.8em 1em;
+      border: 1px solid $maincolor;
+      box-shadow: 0 0.1em 0 lightblue;
+      outline: none;
+
+      &:focus {
+        border: 2px solid $accentcolor;
+      }
+    }
+  }
+
+  div {
+    padding: 2em $margin-left 0 $margin-left;
+  }
+  #list {
+
+    .web{
+      line-height: 1.3em;
+
+      @include tablet-mid {
+        font-size: 1.05rem;
+      }
+    }
+    margin: 0.5em -0.8em;
+    list-style-type: none;
+    line-height: 1.8em;
+    padding: 0.9em;
+    border-bottom: 1px solid lightgray;
+
+    li {
+      padding-bottom: 1em;
+      line-height: 1rem;
+
+      a {
+        color: $maincolor;
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $maincolor;
+  background-image: url("../images/Ellipsicle background logo.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .divfooter {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 1px;
+
+    @include desktop {
+      width: 100%;
+
+      @include tablet-mid {
+        width: 100%;
+      }
+    }
+
+
+    #divblock {
+      width: 90%;
+      margin: 3em auto;
+
+      @include tablet-mid {
+        width: 100%;
+        border-top: 1px solid lightblue;
+        padding-top: 1em;
+        
+      }
+
+      p {
+        text-align: center;
+        color: lightblue;
+        font-weight: 700;
+        font-size: 0.95rem;
+        letter-spacing: 1px;
+
+        @include tablet-mid {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    ul {
+      display: flex;
+      width: 100%;
+      list-style-type: none;
+      border-bottom: 1px solid white;
+
+      @include tablet-mid {
+        font-size: 1.2rem;
+        display:grid;
+        width: 25%;
+        align-items: center;
+        margin: 0 33% 0;
+        padding-top: 3em;
+        border-bottom: unset;
+      }
+
+      #contact-id{
+        margin-left: -2.5em;
+
+        @include tablet-mid {
+          margin-left: 0;
+        }
+                }
+
+      li {
+        padding: 2.5em;
+        width: 100%;
+
+        @include tablet-mid {
+          width: 90%;
+          text-align: center;
+         float: center;
+         padding: 0;
+           
+        }
+
+        
+
+        @include desktop {
+          padding: 2em 1em 2em 1em;
+
+          @include tablet {
+            padding: 2em 0.5em 2em 0.5em;
+
+            @include tablet-mid {
+              padding: 2em 0.3em 2em 0.3em;
+            }
+          }
+        }
+
+        a {
+          text-decoration: none;
+          color: white;
+        
+        }
+      }
+    }
+  }
+}
+
+// About Us page styling:
+
+header {
+  #about {
+    color: $maincolor;
+    font-weight: 700;
+  }
+
+  #nav {
+    margin-top: -0.1em;
+  }
+
+  .hero-image {
+    background-image: url("../images/hero image.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding: 11.3em 20em;
+
+    @include tablet-mid {
+      padding:8em 10em;
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+
+      @include tablet-mid {
+        width: 100%;
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
+
+main {
+  .divklass1 {
+    text-align: center;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 2em;
+
+    .h2{
+      @include tablet-mid {
+        padding-top: 3.8em;
+      } 
+    }
+
+    .imgdivklass{
+      @include tablet-mid {
+        width: 7%!important;
+      }
+    }
+
+    @include tablet-mid {
+      margin-top: -7em;
+    }
+
+    p {
+      text-align: left;
+      line-height: 1.8em;
+      margin: 2em $margin-left 0 $margin-left;
+
+      @include tablet-mid {
+        margin: 1em $margin-left 0 $margin-left;
+        font-size: 1.2rem;
+      }
+      
+    }
+
+    .divklass-flex1 {
+      display: flex;
+      margin: 0 $margin-left 0 $margin-left;
+
+      @include tablet-mid {
+        display:grid;
+      }
+
+      p {
+        border-bottom: unset;
+        margin-top: 3em;
+
+        @include tablet-mid {
+          width: 100%;
+          margin: 1.5em auto;
+         
+        }
+      }
+
+      img {
+        width: 20%;
+        margin-top: 0.3em;
+
+        @include tablet-mid {
+          width: 53%;
+          margin: 0.2em auto;
+        }
+      }
+    }
+
+    .divklass-flex {
+      display: flex;
+      margin: 0 $margin-left 0 $margin-left;
+
+      @include tablet-mid {
+        display: grid;
+      }
+
+      p {
+        border-bottom: unset;
+        margin-top: -1em;
+
+        @include tablet-mid {
+          width: 100%;
+          margin: 0 auto;
+        }
+      }
+
+      img {
+        width: 20%;
+        margin-top: -3em;
+
+        @include tablet-mid {
+          width: 53%;
+          margin: 0 auto;
+          padding-bottom: 2em;
+        }
+      }
+    }
+  }
+}
+
+// Contact Us page styling:
+
+header {
+
+  #contact {
+    color: $maincolor;
+    font-weight: 700;
+  }
+}
+
+#main {
+  background-image: url("../images/priscilla-du-preez-3gAiajAfjXI-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .main-div-flex {
+    display: flex;
+    padding-top: 8em;
+    margin: 0 auto;
+    justify-content: space-around;
+
+    @include tablet-mid {
+      display: grid;
+      width: 92%;
+      margin: 0 auto;
+    }
+
+    input {
+      padding: 0.8em 20em 0.8em 0.5em;
+      border-radius: $border-radius;
+      outline: none;
+      border: 1px solid $maincolor;
+      margin-bottom: 2em;
+
+      @include tablet-mid {
+        padding: 0.8em 19.5em 0.8em 0.5em;
+        font-size: 1.04rem;
+      }
+
+      &:focus {
+        border-color: $accentcolor;
+      }
+    }
+
+    textarea {
+      padding-right: 18.3em;
+      border-radius: $border-radius;
+      font-size: 0.9rem;
+      outline: none;
+      border: 1px solid $maincolor;
+      margin-bottom: 0.5em;
+
+      @include tablet-mid {
+        font-size: 1.1rem;
+        }
+
+      &:focus {
+        border-color: $accentcolor;
+      }
+    }
+
+    #form-submit {
+      padding: 0.8em;
+      background-color: $maincolor;
+      color: white;
+      font-weight: 700;
+      width: 25%;
+      margin: 0 38% 20%;
+      cursor: pointer;
+
+      @include tablet-mid {
+        width: 30%;
+        margin: 1% 36% 20%;
+        font-size: 1.1rem;
+      }
+
+      &:active {
+        background-color: white;
+        border: 2px solid $maincolor;
+        color: $maincolor;
+      }
+    }
+
+    h2 {
+      color: white;
+      text-align: center;
+      font-size: 1.8rem;
+      width: 100%;
+
+      @include tablet-mid {
+        color: white;
+        margin-top: -2em;
+      }
+    }
+
+    img {
+      width: 15%;
+      padding-left: 8em;
+
+      @include tablet-mid {
+        padding-left: 45%;
+        width: 10%;
+      }
+    }
+
+    p {
+      color: white;
+      width: 100%;
+      font-size: 1.2rem;
+
+      @include tablet-mid {
+        font-size: 1.3rem;
+        text-align: center;
+        background-color: black;
+        width: 70%;
+        margin: 4% auto;
+      }
+    }
+  }
+}
+
+#footer {
+  margin-top: -1em;
+}
+
+// Contribute page styling:
+header {
+
+  li{
+    @include tablet-mid {
+      margin-left: -0.1em;
+    }
+  }
+
+
+
+
+  #contribute {
+    color: $maincolor;
+    font-weight: 700;
+  }
+}
+
+#main-one {
+  
+  .main-div-block {
+    padding-top: 3em;
+    width: 50%;
+    margin: 0 auto;
+
+    @include tablet-mid {
+      width: 100%;
+    }
+
+    #assign {
+      padding-right: 11.2em;
+    }
+
+    select {
+      padding: 0.8em 10em 0.8em 0.5em;
+      border-radius: $border-radius;
+      outline: none;
+      margin-bottom: 2em;
+      box-shadow: 0 0.1em 0 gray;
+      border: 1px solid lightblue;
+    }
+
+    input {
+      padding: 0.8em 20em 0.8em 0.5em;
+      border-radius: $border-radius;
+      outline: none;
+      width: 50%;
+      box-shadow: 0 0.1em 0 gray;
+      border: 1px solid lightblue;
+      margin-bottom: 2em;
+
+      &:focus {
+        border-color: $accentcolor;
+      }
+    }
+
+    .label {
+      width: 90%;
+      margin: -5.5% -4% 5%;
+      line-height: 1.3em;
+      text-align: center;
+
+      a {
+        color: $maincolor;
+      }
+    }
+
+    textarea {
+      padding-right: 18.3em;
+      border-radius: $border-radius;
+      font-size: 0.9rem;
+      width: 50%;
+      box-shadow: 0 0.1em 0 gray;
+      outline: none;
+      border: 1px solid lightblue;
+      margin-bottom: 0.5em;
+
+      &:focus {
+        border-color: $accentcolor;
+      }
+    }
+
+    #form-submit {
+      padding: 0.8em;
+      background-color: $maincolor;
+      color: white;
+      font-weight: 700;
+      width: 25%;
+      margin: 2% 33% 20%;
+      cursor: pointer;
+
+      &:active {
+        background-color: white;
+        border: 2px solid $maincolor;
+        color: $maincolor;
+      }
+    }
+
+    h2 {
+      color: black;
+      text-align: center;
+      font-size: 1.8rem;
+      width: 100%;
+    }
+
+    img {
+      width: 7%;
+      padding-left: 45%;
+    }
+
+    p {
+      color: black;
+      margin-bottom: 1em;
+      width: 100%;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+  }
+}

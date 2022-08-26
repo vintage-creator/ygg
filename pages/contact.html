@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../CSS/style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Contact Us</title>
+  </head>
+  <body>
+    <header>
+      <nav id="nav">
+        <div class="nav-logo">
+          <a href="../index.html">
+            <img src="../images/logo (1).svg" alt="logo" />
+            <img src="../images/Ygg.svg" alt="logo text" class="logotxt" />
+          </a>
+        </div>
+        <div>
+          <ul>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./contribute.html">Contribute</a></li>
+            <li><a id="contact" href="./contact.html">Contact Us</a></li>
+            <li>
+              <button type="submit" style="cursor: pointer">
+                Connect Wallet
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <div class="main-div-flex">
+        <div>
+          <h2>Contact Us</h2>
+          <img src="../images/colour mix.png" />
+          <p>Hi! Write to us, let's hear from you.</p>
+        </div>
+        <form action="">
+          <input type="text" id="name" placeholder="Enter your name" required/><br />
+          <input type="email" id="email" placeholder="Your email" required /><br />
+          <textarea required
+            id="contact-msg"
+            name="contact-msg"
+            rows="20"
+            cols="20"
+            placeholder="Write your message..."
+          ></textarea><br/>
+          <input id="form-submit" type="submit" value="Talk to us">
+        </form>
+      </div>
+    </main>
+
+    <footer id="footer">
+      <div class="divfooter">
+        <ul>
+          <li><a href="#">Send feedback</a></li>
+          <li><a href="">Privacy policy</a></li>
+          <li><a href="">Terms of service</a></li>
+          <li><a href="">Contribute</a></li>
+          <li><a href="">Contact Us</a></li>
+        </ul>
+        <div id="divblock">
+          <p>Designed by Israel Abazie &copy; Copyright 2022, YGG Inc.</p>
+          <p>All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../script.js"></script>
+  </body>
+</html>
