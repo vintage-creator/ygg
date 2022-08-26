@@ -57,8 +57,8 @@ function listen() {
   let inputArea = document.getElementById("input-area");
   let outputArea = document.getElementById("output-area");
 
-  var recognition = new webkitSpeechRecognition();
-  recognition.lang = "en-GB";
+  var recognition = new window.webkitSpeechRecognition();
+  recognition.lang = "en-US";
   recognition.start();
 
   recognition.onresult = function (event) {
