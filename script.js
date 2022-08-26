@@ -87,3 +87,4 @@ function listen() {
     inputArea.innerHTML = event.results[0][0].transcript;
   };
 }
+
