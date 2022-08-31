@@ -9,3 +9,9 @@
 
 #ignore this html file
 *contents.html
+
+#ignore this html file
+*favicon-32x32.png
+
+#ignore this html file
+*icon-hamburger.svg

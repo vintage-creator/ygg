@@ -11,19 +11,33 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <title>Contact Us</title>
+
+    <title>Contact YGG</title>
   </head>
-  <body>
+  <body class="body-contact">
     <header>
-      <nav id="nav">
+      <nav class="contact-nav">
         <div class="nav-logo">
           <a href="../index.html">
             <img src="../images/logo (1).svg" alt="logo" />
             <img src="../images/Ygg.svg" alt="logo text" class="logotxt" />
           </a>
+          <img
+            src="../images/menu--v1.png"
+            class="hamburger"
+            alt="hamburger menu"
+          />
         </div>
         <div>
-          <ul>
+          <ul class="ul">
+            <li>
+              <img
+                src="../images/close.svg"
+                class="closeMenu"
+                alt="close menu"
+              />
+            </li>
+            <li class="home" style="color:#257ebf;"><a href="../index.html">Home</a></li>
             <li><a href="./about.html">About</a></li>
             <li><a href="./contribute.html">Contribute</a></li>
             <li><a id="contact" href="./contact.html">Contact Us</a></li>
@@ -45,16 +59,28 @@
           <p>Hi! Write to us, let's hear from you.</p>
         </div>
         <form action="">
-          <input type="text" id="name" placeholder="Enter your name" required/><br />
-          <input type="email" id="email" placeholder="Your email" required /><br />
-          <textarea required
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            required
+          /><br />
+          <input
+            type="email"
+            id="email"
+            placeholder="Your email"
+            required
+          /><br />
+          <textarea
+            required
             id="contact-msg"
             name="contact-msg"
             rows="20"
             cols="20"
             placeholder="Write your message..."
-          ></textarea><br/>
-          <input id="form-submit" type="submit" value="Talk to us">
+          ></textarea
+          ><br />
+          <input id="form-submit" type="submit" value="Talk to us" />
         </form>
       </div>
     </main>
@@ -64,9 +90,9 @@
         <ul>
           <li><a href="#">Send feedback</a></li>
           <li><a href="">Privacy policy</a></li>
-          <li><a href="">Terms of service</a></li>
-          <li><a href="">Contribute</a></li>
-          <li><a href="">Contact Us</a></li>
+          <li id="terms"><a href="">Terms of service</a></li>
+          <li id="contribute"><a href="./contribute.html">Contribute</a></li>
+          <li id="contact"><a href="./contact.html">Contact Us</a></li>
         </ul>
         <div id="divblock">
           <p>Designed by Israel Abazie &copy; Copyright 2022, YGG Inc.</p>
@@ -75,6 +101,25 @@
       </div>
     </footer>
 
-    <script src="../script.js"></script>
+    <script>
+      const closeMenu = document.querySelector(".closeMenu");
+      const ul = document.querySelector(".ul");
+      const hamburger = document.querySelector(".hamburger");
+
+      hamburger.addEventListener("click", () => {
+        if (ul.style.display === "none") {
+          ul.style.display = "block";
+        } else {
+          ul.style.display = "none";
+        }
+      });
+      closeMenu.addEventListener("click", () => {
+        if (ul.style.display === "block") {
+          ul.style.display = "none";
+        } else {
+          ul.style.display = "block";
+        }
+      });
+    </script>
   </body>
 </html>

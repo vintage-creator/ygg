@@ -21,9 +21,22 @@
             <img src="../images/logo (1).svg" alt="logo" />
             <img src="../images/Ygg.svg" alt="logo text" class="logotxt" />
           </a>
+          <img
+            src="../images/menu--v1.png"
+            class="hamburger"
+            alt="hamburger menu"
+          />
         </div>
         <div>
-          <ul>
+          <ul class="ul">
+            <li>
+              <img
+                src="../images/close.svg"
+                class="closeMenu"
+                alt="close menu"
+              />
+            </li>
+            <li class="home" style="color:#257ebf;"><a href="../index.html">Home</a></li>
             <li><a href="./about.html">About</a></li>
             <li><a id="contribute" href="./contribute.html">Contribute</a></li>
             <li><a href="./contact.html">Contact Us</a></li>
@@ -37,79 +50,97 @@
       </nav>
     </header>
     <main id="main-one">
-        <div class="main-div-block">
-          <div>
-            <h2>Become a contributor</h2>
-            <img src="../images/colour mix.png" />
-            <p>Get your post in front of millions of users and be hired.</p>
-          </div>
-          <form action="">
-            <div class="label">
-              <a href="">Read our policy</a> before you get started contributing
-              to Ygg. All posts will be reviewed within 3 business days.
-            </div>
-            <input
-              type="text"
-              id="name"
-              placeholder="Contributor's full name"
-              required
-            /><br />
-            <input
-              type="email"
-              id="email"
-              placeholder="Contributor's email"
-              required
-            /><br />
-  
-            <select>
-              <option value="search-topics">Select topic</option>
-              <option value="nft">NFT</option>
-              <option value="stable-coins">Stable coin</option>
-              <option value="blockchain">Blockchain</option>
-              <option value="solana">Solana</option>
-              <option value="sharding">Sharding</option>
-              <option value="ZKT">Zero-Knowledge Technology</option>
-              <option value="ethereum">Ethereum</option></select
-            ><br />
-  
-            <select id="assign">
-              <option value="assign-level">Assign a knowledge level</option>
-              <option value="beginner-level">Beginner level</option>
-              <option value="intermediate-level">Intermediate level</option>
-              <option value="advanced-level">Advanced level</option></select
-            ><br />
-  
-            <textarea
-              required
-              id="contact-msg"
-              name="contact-msg"
-              rows="20"
-              cols="20"
-              placeholder="Write your content and attach infographics where necessary..."
-            ></textarea
-            ><br />
-            <input id="form-submit" type="submit" value="Submit" />
-          </form>
+      <div class="main-div-block">
+        <div>
+          <h2>Become a contributor</h2>
+          <img src="../images/colour mix.png" />
+          <p>Get your post in front of millions of users and be hired.</p>
         </div>
-      </main>
-  
-      <footer>
-        <div class="divfooter">
-          <ul>
-            <li><a href="#">Send feedback</a></li>
-            <li><a href="">Privacy policy</a></li>
-            <li><a href="">Terms of service</a></li>
-            <li><a href="">Contribute</a></li>
-            <li><a href="">Contact Us</a></li>
-          </ul>
-          <div id="divblock">
-            <p>Designed by Israel Abazie &copy; Copyright 2022, YGG Inc.</p>
-            <p>All rights reserved.</p>
+        <form action="">
+          <div class="label">
+            <a href="">Read our policy</a> before you get started contributing
+            to Ygg. All posts will be reviewed within 3 business days.
           </div>
-        </div>
-      </footer>
-  
-      <script src="../script.js"></script>
-  </body>
+          <input
+            type="text"
+            id="name"
+            placeholder="Contributor's full name"
+            required
+          /><br />
+          <input
+            type="email"
+            id="email"
+            placeholder="Contributor's email"
+            required
+          /><br />
 
+          <select>
+            <option value="search-topics">Select topic</option>
+            <option value="nft">NFT</option>
+            <option value="stable-coins">Stable coin</option>
+            <option value="blockchain">Blockchain</option>
+            <option value="solana">Solana</option>
+            <option value="sharding">Sharding</option>
+            <option value="ZKT">Zero-Knowledge Technology</option>
+            <option value="ethereum">Ethereum</option></select
+          ><br />
+
+          <select id="assign">
+            <option value="assign-level">Assign a knowledge level</option>
+            <option value="beginner-level">Beginner level</option>
+            <option value="intermediate-level">Intermediate level</option>
+            <option value="advanced-level">Advanced level</option></select
+          ><br />
+
+          <textarea
+            required
+            id="contact-msg"
+            name="contact-msg"
+            rows="20"
+            cols="20"
+            placeholder="Write your content and attach infographics where necessary..."
+          ></textarea
+          ><br />
+          <input id="form-submit" type="submit" value="Submit" />
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <div class="divfooter">
+        <ul>
+          <li><a href="#">Send feedback</a></li>
+          <li><a href="">Privacy policy</a></li>
+          <li id="terms"><a href="">Terms of service</a></li>
+          <li id="contribute"><a href="./contribute.html">Contribute</a></li>
+          <li id="contact"><a href="./contact.html">Contact Us</a></li>
+        </ul>
+        <div id="divblock">
+          <p>Designed by Israel Abazie &copy; Copyright 2022, YGG Inc.</p>
+          <p>All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const closeMenu = document.querySelector(".closeMenu");
+      const ul = document.querySelector(".ul");
+      const hamburger = document.querySelector(".hamburger");
+
+      hamburger.addEventListener("click", () => {
+        if (ul.style.display === "none") {
+          ul.style.display = "block";
+        } else {
+          ul.style.display = "none";
+        }
+      });
+      closeMenu.addEventListener("click", () => {
+        if (ul.style.display === "block") {
+          ul.style.display = "none";
+        } else {
+          ul.style.display = "block";
+        }
+      });
+    </script>
+  </body>
 </html>

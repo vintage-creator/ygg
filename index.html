@@ -5,25 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./CSS/style.css" rel="stylesheet" type="text/css" />
+    <link href="./images/logo (1).svg" rel="icon" type="image/svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    
+  
     <title>YGG - Web3 Dictionary</title>
   </head>
   <body>
     <header>
       <nav>
         <div class="nav-logo">
-          <a href="#">
+          <a href="index.html">
             <img src="./images/logo (1).svg" alt="logo" />
             <img src="./images/Ygg.svg" alt="logo text" class="logotxt" />
           </a>
+          <img
+            src="./images/menu--v1.png"
+            class="hamburger"
+            alt="hamburger menu"
+          />
         </div>
+
         <div>
-          <ul>
+          <ul class="ul">
+            <li>
+              <img
+                src="./images/close.svg"
+                class="closeMenu"
+                alt="close menu"
+              />
+            </li>
+            <li class="home" style="color:#257ebf;"><a href="./index.html">Home</a></li>
             <li><a href="./pages/about.html">About</a></li>
             <li><a href="./pages/contribute.html">Contribute</a></li>
             <li><a href="./pages/contact.html">Contact Us</a></li>
@@ -80,55 +97,65 @@
             />
             <span id="span">Settings</span>
           </div>
-        
+
           <div class="select-me">
             <div>
-                <select >
-                  <option value="search-database">Search by alphabet</option>
-                  <option value="A-D">A-D</option>
-                  <option value="E-H">E-H</option>
-                  <option value="I-L">I-L</option>
-                  <option value="M-P">M-P</option>
-                  <option value="Q-T">Q-T</option>
-                  <option value="U-W">U-W</option>
-                  <option value="X-Z">X-Z</option>
-                </select>
+              <select>
+                <option value="search-database">Search by alphabet</option>
+                <option value="A-D">A-D</option>
+                <option value="E-H">E-H</option>
+                <option value="I-L">I-L</option>
+                <option value="M-P">M-P</option>
+                <option value="Q-T">Q-T</option>
+                <option value="U-W">U-W</option>
+                <option value="X-Z">X-Z</option>
+              </select>
             </div>
             <div>
-                <select >
-                  <option value="knowledge-levels">Levels of knowledge</option>
-                  <option value="beginner-level">Beginner level</option>
-                  <option value="intermediate-level">Intermediate level</option>
-                  <option value="advanced-level">Advanced level</option>
-                </select>
+              <select id="selectKnowledge">
+                <option value="knowledge-levels">Levels of knowledge</option>
+                <option value="beginner-level">Beginner level</option>
+                <option value="intermediate-level">Intermediate level</option>
+                <option value="advanced-level">Advanced level</option>
+              </select>
             </div>
-          </div>  
-
+          </div>
         </div>
 
         <div class="settingsbar">
-          <div><img
-            src="./images/close.svg"
-            class="close-1"
-            onclick="close()"
-            alt="close icon"/>
-         </div>
+          <div>
+            <img
+              src="./images/close.svg"
+              class="close-1"
+              onclick="close()"
+              alt="close icon"
+            />
+          </div>
 
-        <div id="settings-flex">
-            <p class="settings-p">Filter is on<br/><br/><b>Turn off</b><img src="./images/filter.svg" alt="filter icon" width="28%" /></p>
-            <p class="settings-p">Light mode is on<br/><br/><b>Change</b><img src="./images/Night mode icon.svg" alt="night mode" width="13%" /> </p>
-         <div>
-            <p>Change language</p>
-            <select class="lang-abc" name="choose language">
+          <div id="settings-flex">
+            <p class="settings-p">
+              Filter is on<br /><br /><b>Turn off</b
+              ><img src="./images/filter.svg" alt="filter icon" width="28%" />
+            </p>
+            <p class="settings-p">
+              Light mode is on<br /><br /><b>Change</b
+              ><img id="nightmode"
+                src="./images/Night mode icon.svg"
+                alt="night mode"
+                width="13%"
+              />
+            </p>
+            <div>
+              <p>Change language</p>
+              <select class="lang-abc" name="choose language">
                 <option value="English">English</option>
                 <option value="Arabic">Arabic</option>
                 <option value="French">French</option>
                 <option value="German">German</option>
                 <option value="Spanish">Spanish</option>
-            </select>
-         </div>
-        </div>
-        
+              </select>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -153,7 +180,7 @@
             <a href="">Mempool</a> /’mem,pool/ term (noun) a smaller database
             that stores pending transactions which every node keeps record of.
             [PoV] when a transaction is confirmed by virtue of being included in
-            a block, it is removed from the mempool. 
+            a block, it is removed from the mempool.
           </li>
           <li class="web">
             <a href="">Off-chain </a>/’off,chain/ term (adjective) to store data
@@ -173,53 +200,81 @@
         <ol id="list">
           <li class="web"><a href="">ATH</a> stands for All Time High.</li>
           <li class="web"><a href="">ATL</a> stands for All Time Low.</li>
-          <li class="web"><a href="">DAO</a> stands for Decentralized Autonomous Organization.</li>
-          <li class="web"><a href="">DApp</a> stands for Decentralized Application.</li>
-          <li class="web"><a href="">DeFi</a> stands for Decentralized Finance.</li>
-          <li class="web"><a href="">DEX</a> stands for Decentralized Exchange.</li>
-          <li class="web"><a href="">EIP</a> stands for Ethereum Improvement Proposal.</li>
-          <li class="web"><a href="">ERC</a> stands for Ethereum Request for Comments.</li>
-          <li class="web"><a href="">HODL</a> stands for Hold On for Dear Life.</li>
-          <li class="web"><a href="">ICO</a> stands for Initial Coin Offering.</li>
+          <li class="web">
+            <a href="">DAO</a> stands for Decentralized Autonomous Organization.
+          </li>
+          <li class="web">
+            <a href="">DApp</a> stands for Decentralized Application.
+          </li>
+          <li class="web">
+            <a href="">DeFi</a> stands for Decentralized Finance.
+          </li>
+          <li class="web">
+            <a href="">DEX</a> stands for Decentralized Exchange.
+          </li>
+          <li class="web">
+            <a href="">EIP</a> stands for Ethereum Improvement Proposal.
+          </li>
+          <li class="web">
+            <a href="">ERC</a> stands for Ethereum Request for Comments.
+          </li>
+          <li class="web">
+            <a href="">HODL</a> stands for Hold On for Dear Life.
+          </li>
+          <li class="web">
+            <a href="">ICO</a> stands for Initial Coin Offering.
+          </li>
           <li class="web"><a href="">L1</a> stands for Layer 1.</li>
           <li class="web"><a href="">L2</a> stands for Layer 2.</li>
           <li class="web"><a href="">P2P</a> stands for Peer-to-Peer.</li>
           <li class="web"><a href="">PoS</a> stands for Proof of Stake.</li>
           <li class="web"><a href="">PoW</a> stands for Proof of Work.</li>
-          <li class="web"><a href="">TPS</a> stands for Transactions Per Second.</li>
+          <li class="web">
+            <a href="">TPS</a> stands for Transactions Per Second.
+          </li>
           <li class="web"><a href="">TVL</a> stands for Total Value Locked.</li>
-          <li class="web"><a href="">WAGMI</a> stands for We’re All Gonna Make It.</li>
-          <li class="web"><a href="">ZK-SNARK</a> stands for Zero-Knowledge Succint Non-interactive Argument of Knowledge.</li>
-          <li class="web"><a href="">ZK-STARK</a> stands for Zero-Knowledge Scalable Transparent Argument of Knowledge.</li>
-          
+          <li class="web">
+            <a href="">WAGMI</a> stands for We’re All Gonna Make It.
+          </li>
+          <li class="web">
+            <a href="">ZK-SNARK</a> stands for Zero-Knowledge Succint
+            Non-interactive Argument of Knowledge.
+          </li>
+          <li class="web">
+            <a href="">ZK-STARK</a> stands for Zero-Knowledge Scalable
+            Transparent Argument of Knowledge.
+          </li>
         </ol>
       </div>
       <div class="divklass">
-        <h3>Subscribe to our newsletter</h3>
-        <img class="img-divklass" src="./images/colour mix.png" style="width:3.5%" />
+        <h3 id="h3">Subscribe to our newsletter</h3>
+        <img
+          class="img-divklass"
+          src="./images/colour mix.png"
+          style="width: 3.5%"
+        />
         <p>Get weekly updates and know when new words are added.</p>
-        <input type="email" placeholder="Enter your email address..."/>
+        <input type="email" placeholder="Enter your email address..." />
         <button type="submit">Subscribe</button>
       </div>
     </main>
 
     <footer>
-        <div class="divfooter">
-            <ul>
-                <li><a href="#">Send feedback</a></li>
-                <li><a href="">Privacy policy</a></li>
-                <li><a href="">Terms of service</a></li>
-                <li><a href="">Contribute</a></li>
-                <li id="contact-id" ><a href="./pages/contact.html">Contact Us</a></li>
-              </ul>
-              <div id="divblock">
-                <p>Designed by Israel Abazie &copy; Copyright 2022, YGG Inc.</p>
-                <p>All rights reserved.</p>
-              </div>
+      <div class="divfooter">
+        <ul>
+          <li><a href="#">Send feedback</a></li>
+          <li><a href="">Privacy policy</a></li>
+          <li><a href="">Terms of service</a></li>
+          <li><a href="./pages/contribute.html">Contribute</a></li>
+          <li id="contact-id"><a href="./pages/contact.html">Contact Us</a></li>
+        </ul>
+        <div id="divblock">
+          <p>Designed by Israel Abazie &copy; Copyright 2022, YGG Inc.</p>
+          <p>All rights reserved.</p>
         </div>
-
+      </div>
     </footer>
-
-    <script src="script.js"></script>
+    
+    <script src="./script.js" type="text/javaScript"></script>
   </body>
 </html>

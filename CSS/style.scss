@@ -4,34 +4,71 @@ $accentcolor: #efcf28;
 $margin-left: 1.9em;
 $border-radius: 0.58em;
 
+//desktop mixin:
 $desktop: 1285px;
-$desktop-mid: 761px and 1284px;
-$tablet: 760px;
-$tablet-mid: 700px;
+
+//desktop-mini mixin:
+$desktop-mini-a: 1200px;
+$desktop-mini-b: 1284px;
+
+//desktop-mid mixin:
+$desktop-mid-a: 761px;
+$desktop-mid-b: 1199px;
+
+//tablet mixin:
+$tablet-a: 701px;
+$tablet-b: 760px;
+
+//tablet-mid mixin:
+$tablet-mid-a: 600px;
+$tablet-mid-b: 700px;
+
+//mobile-mid mixin:
+$mobile-mid-a: 400px;
+$mobile-mid-b: 599px;
+
+//mobile-mini mixin:
+$mobile-mini-a: 200px;
+$mobile-mini-b: 399px;
+
 
 @mixin desktop {
   @media (max-width: #{$desktop}) {
     @content;
   }
 }
+@mixin desktop-mini-1{
+  @media (min-width: #{$desktop-mini-a}) and (max-width: #{$desktop-mini-b}) {
+    @content;
+  }
+}
 @mixin desktop-mid {
-  @media (max-width: #{$desktop-mid}) {
+  @media (min-width: #{$desktop-mid-a})and(max-width: #{$desktop-mid-b}) {
     @content;
   }
 }
 
 @mixin tablet {
-  @media (max-width: #{$tablet}) {
+  @media (min-width: #{$tablet-a})and(max-width: #{$tablet-b}) {
     @content; 
   }
 }
 
 @mixin tablet-mid {
-  @media (max-width: #{$tablet-mid}) {
+  @media (min-width: #{$tablet-mid-a})and(max-width: #{$tablet-mid-b}) {
     @content; 
   }
 }
-
+@mixin mobile-mid {
+  @media (min-width: #{$mobile-mid-a})and(max-width: #{$mobile-mid-b}) {
+    @content; 
+  }
+}
+@mixin mobile-mini {
+  @media (min-width: #{$mobile-mini-a})and(max-width: #{$mobile-mini-b}) {
+    @content; 
+  }
+}
 
 
 body,
@@ -40,6 +77,7 @@ html {
   margin: 0;
   overflow-x: hidden;
 }
+
 
 header {
   nav {
@@ -52,8 +90,70 @@ header {
     margin-top: -1.65em;
     border-bottom: 1px solid $maincolor;
 
+
+    @include mobile-mid {
+      margin-top: unset;
+      position: sticky;
+
+    }
+    @include mobile-mini {
+      margin-top: unset;
+      position: sticky;
+    }
+    
+
+    .hamburger{
+      display: none;
+      width: 12%;
+
+      @include mobile-mid {
+        display: block;
+        margin: -13% 20% 8% 160%;
+      }
+      @include mobile-mini {
+        display: block;
+        margin: -25% 20% 9% 175%;
+        width: 20%;
+        height: 60%;
+      }
+    }
+
+    .closeMenu{
+      display: none;
+      width: 7%;
+
+      @include mobile-mid {
+        display: block;
+        margin-left: 80%;
+        padding: 2em;
+      }
+      @include mobile-mini {
+        display: block;
+        margin-left: 70%;
+        padding: 2em;
+      }
+    }
+
+
     .nav-logo {
       margin-left: $margin-left;
+
+      @include mobile-mid {
+        width: 50%;
+      }
+      @include mobile-mini {
+        width: 40%;
+      }
+
+      @include tablet-mid {
+        margin-top: 0.2em;
+    
+      }
+
+      @include desktop-mid {
+        margin-top: 0.2em;
+        }
+
 
       a {
         text-decoration: none;
@@ -62,10 +162,20 @@ header {
 
     img {
       width: 23%;
+
+      @include mobile-mid {
+        width: 14%;
+        margin-top: 2%;
+      }
       
 
-      @include tablet-mid {
+      @include desktop-mid {
         width: 20%;
+        }
+
+
+      @include tablet-mid {
+        width: 18%;
       }
     }
 
@@ -73,29 +183,104 @@ header {
       width: 38%;
       padding-bottom: 1em;
 
+      @include mobile-mid {
+        width: 32%;
+        margin-bottom: -3.2%;
+      }
+      @include mobile-mini {
+        width: 38%;
+        margin:-4.5%;
+      }
+
       @include tablet-mid {
         width: 34%;
       }
     }
+    
 
-    ul {
+    .ul {
       list-style-type: none;
       display: flex;
 
+      .home{
+        display: none;
+
+        @include mobile-mid {
+          display: block;
+          color:$maincolor;
+          font-weight: 700;
+          outline: none;
+        }
+        @include mobile-mini {
+          display: block;
+          color:$maincolor;
+          font-weight: 700;
+          outline: none;
+        }
+      }
+
+      
+      @include mobile-mid {
+        display: none;
+        transition: 0.5s ease-in-out;
+        background-color: white;
+        width: 100vw;
+        height: 100vh;
+        text-align: center;
+        margin-left: -8%;
+
+      }
+      @include mobile-mini {
+        display: none;
+        transition: 0.5s ease-in-out;
+        background-color: white;
+        width: 100vw;
+        height: 100vh;
+        text-align: center;
+        margin-left: -13%;
+
+      }
+
+      @include tablet-mid {
+        font-size: 0.95rem;
+        margin-left: -5em;
+      }
+
       li {
         padding-right: 2.5em;
+
+        @include desktop-mid {
+          margin-left: -0.8%;
+    
+        }
+
+        @include mobile-mid {
+          padding-bottom: 3em;
+          font-size: 1.3rem;
+        }
+
+        @include mobile-mini {
+          padding-bottom: 3em;
+          font-size: 1.08rem;
+        }
 
         @include tablet {
           padding-right: 1.7em;
 
           @include tablet-mid {
             padding-right: 1em;
+        
           }
         }
 
         a {
           text-decoration: none;
           color: black;
+
+          @include tablet-mid {
+            margin-left: -1em;
+        
+          }
 
           &:focus {
             color: $maincolor;
@@ -111,6 +296,19 @@ header {
         padding: 0.8em;
         border-radius: $border-radius;
         margin-top: -2em;
+
+        
+
+        @include mobile-mid {
+          font-size: 1.1rem;
+        }
+        @include mobile-mini {
+          font-size: 1rem;
+        }
+
+        @include tablet-mid {
+          padding-right: 0.6em;
+        }
 
         &:active {
           background-color: white;
@@ -133,8 +331,57 @@ header {
     display: flex;
     justify-content: space-around;
 
+    
+    @include mobile-mid {
+      display: grid;
+      justify-content:left;
+    }
+    @include mobile-mini {
+      display: grid;
+      justify-content:left;
+    }
+
+
+    div{
+      
+      @include mobile-mid {
+        font-size: 1rem;
+        padding-bottom: 2%;
+      }
+      @include mobile-mini {
+        font-size: 1rem;
+        padding-bottom: 2%;
+      }
+    }
+
+    .settings-p{
+      
+      @include mobile-mid {
+        font-size: 1rem;
+        padding-bottom: 2%;
+      }
+      @include mobile-mini {
+        font-size: 0.98rem;
+        padding-bottom: 2%;
+      }
+    }
+
     .lang-abc {
       border-color: white;
+
+      
+      @include mobile-mid {
+        font-size: 1rem;
+        font-weight: 700;
+        margin-left: -4%;
+    
+      }
+      @include mobile-mini {
+        font-size: 0.98rem;
+        font-weight: 700;
+        margin-left: -4%;
+    
+      }
 
       @include desktop-mid {
         font-size: 0.95rem;
@@ -153,9 +400,19 @@ header {
       }
     }
 
+    #nightmode {
+      @include mobile-mini {
+        width: 11.8%;
+      }
+    }
+
     img {
       margin-bottom: -0.3em;
       padding-left: 0.3em;
+
+      @include mobile-mini {
+        width: 24%;
+      }
     }
   }
 
@@ -169,6 +426,11 @@ header {
     border-radius: $border-radius;
     transition: 0.5s ease-in-out;
 
+    @include tablet-mid {
+      width: 75vw;
+  
+    }
+
 
     .close-1 {
       cursor: pointer;
@@ -177,6 +439,16 @@ header {
       background-color: $maincolor;
       border-radius: 50%;
       padding: 0.18em;
+
+      
+      @include mobile-mid {
+        width: 6%;
+        padding: 0.2em;
+      }
+      @include mobile-mini {
+        width: 6%;
+        padding: 0.2em;
+      }
 
       @include desktop-mid {
         margin:-0.7% 95%;
@@ -198,6 +470,26 @@ header {
     font-size: 2.5rem;
     color: white;
 
+    @include mobile-mid {
+      font-size: 1.9rem;
+      margin: 0 auto;
+      padding: unset;
+      padding-top: 4em;
+    }
+
+    @include mobile-mini {
+      font-size: 1.78rem;
+      width: 80%;
+      margin: 0 auto;
+      padding-left: unset;
+      padding-right: unset;
+      padding-top: 2em;
+    }
+   
+    @include tablet-mid {
+      font-size: 2.3rem;
+    }
+
     span {
       border-radius: 50%;
       border: 2px solid $accentcolor;
@@ -208,6 +500,13 @@ header {
   .input {
     text-align: center;
     margin-top: -0.5em;
+
+    @include mobile-mid {
+      margin: 0 10.8% 0 4%;
+    }
+    @include mobile-mini {
+      margin: 0 10.8% 0 4%;
+    }
 
     submit {
       background-color: white;
@@ -222,11 +521,26 @@ header {
       box-shadow: 0 0.1em 0 lightblue;
       cursor: pointer;
 
+
       @include desktop {
         width: 9%;
 
+        @include tablet-mid {
+          width: 13%;
+        }
+
         @include tablet {
           width: 11%;
+        }
+        @include mobile-mid {
+          width: 19.5%;
+          margin: 3% 43%;
+          font-size: 0.95rem;
+          padding: 0.6em 0.5em 0.6em 0.38em;
+        }
+
+        @include mobile-mini {
+          display: none;
         }
       }
 
@@ -252,11 +566,30 @@ header {
       margin: -0.4% -2.6%;
       cursor: pointer;
 
+      @include mobile-mid {
+        width: 4%;
+        margin: 2% -8% -1.5% ;
+      }
+      @include mobile-mini {
+        width: 5%;
+        margin: 2% -20% -1.5% ;
+        border-left: 2px solid gray;
+        padding-left: 2%;
+      
+      }
 
+
+      
       @include desktop-mid {
-        width: 2.5%;
+        width: 2%;
         position:relative;
-        margin:-0.8% -5.3%;
+        margin:-0.8% -4%;
+
+        @include desktop-mini-1 {
+          width: 2%;
+          position:relative;
+          margin:-0.8% -3.9%;
+        }
       }
 
       @include tablet {
@@ -281,18 +614,42 @@ header {
       outline: none;
       box-shadow: 0 0.1em 0 lightblue;
 
+      
+      @include desktop {
+        width: 35%;
+
+        @include mobile-mid {
+          width: 68%;
+          margin-top: 18%;
+        }
+        @include mobile-mini {
+          width: 82%;
+          margin: 10% 5% 0 -17%;
+          background-image: url("../images/search\ icon.svg");
+          background-repeat: no-repeat;
+          background-size:6%;
+          background-position: 82% 50%;
+          padding-left: 5%;
+        }
+      }
+
       @include desktop-mid {
         margin-left:-9%;
         width: 48%;
+
+        @include desktop-mini-1 {
+          width: 38%;
+        }
       }
 
       @include tablet {
         margin-top: -20%;
         width: 50%;
+      }
 
-        @include tablet-mid {
-          margin-left:-9.9%;
-        }
+      @include tablet-mid {
+        margin-left:-9.9%;
+        width: 54%;
       }
 
       &:focus {
@@ -310,12 +667,21 @@ header {
     margin: -2.5em auto;
     display: none;
 
+
+    @include mobile-mini {
+      width: 90%;
+      margin-left: 7%;
+    }
+    @include mobile-mid {
+      width: 90%;
+      margin-left: 7%;
+    }
     @include desktop-mid {
       width: 57%;
     }
 
     @include tablet-mid {
-      width: 55%;
+      width: 60%;
     }
 
     .search {
@@ -326,6 +692,15 @@ header {
       width: 45%;
       padding: 0.8em;
       margin-top: 1em;
+
+      
+      @include mobile-mid {
+        width: 55%;
+      }
+      @include mobile-mini {
+        width: 70%;
+      }
+
     }
 
     .close {
@@ -333,6 +708,13 @@ header {
       padding-top: 10px;
       margin-left: 86%;
       cursor: pointer;
+
+      @include mobile-mid {
+        width: 5%;
+      }
+      @include mobile-mini {
+        width: 6%;
+      }
     }
   }
 
@@ -342,14 +724,34 @@ header {
     justify-content: center;
     margin-top: 5em;
 
+    @include mobile-mini {
+      margin: 2.5em 0 2em 0.98em;
+    }
+
     .select-me {
       display: flex;
       align-items: center;
       justify-content: center;
+
+      #selectKnowledge {
+        @include mobile-mid {
+          display: none;
+        }
+        @include mobile-mini {
+          display: none;
+        }
+      }
     }
 
     #divspan {
       margin: 0 -1em 0.1em;
+
+      @include mobile-mini {
+        margin-right: -8%;
+      }
+      @include mobile-mid {
+        margin: unset;
+      }
 
       img {
         margin-bottom: -0.2em;
@@ -363,6 +765,7 @@ header {
       font-size: 0.9rem;
       letter-spacing: 1px;
       cursor: pointer;
+      
     }
   }
 
@@ -376,6 +779,12 @@ header {
 
 main {
 
+  h2{
+    @include mobile-mini {
+      font-size: 1.3rem;
+    }
+  }
+
   .main-p{
     @include tablet-mid {
     font-size: 1.2rem;
@@ -388,7 +797,31 @@ main {
     text-align: center;
     padding-bottom: 4em;
 
+    #h3{
+      @include desktop-mid {
+        font-size: 1.3rem;
+
+        @include desktop-mini-1 {
+          font-size: 1.4rem;
+        }
+        }
+    }
+
     .img-divklass{
+
+      @include mobile-mid {
+        width: 6.78%!important;
+      }
+      @include mobile-mini {
+        width: 10.78%!important;
+      }
+
+      @include desktop-mid {
+        width: 6%!important;
+        }
+      @include tablet {
+        width: 6.8%!important;
+        }
 
       @include tablet-mid {
         width: 6%!important;
@@ -414,6 +847,15 @@ main {
       margin-left: 1.2em;
       cursor: pointer;
 
+      @include mobile-mid {
+        display: grid;
+        margin: 2.5% auto;
+      }
+      @include mobile-mini {
+        display: grid;
+        margin: 3% auto;
+      }
+
       &:active {
         background-color: white;
         color: $maincolor;
@@ -428,6 +870,13 @@ main {
       border: 1px solid $maincolor;
       box-shadow: 0 0.1em 0 lightblue;
       outline: none;
+
+      @include mobile-mid {
+       width: 45%;
+      }
+      @include mobile-mini {
+       width: 55%;
+      }
 
       &:focus {
         border: 2px solid $accentcolor;
@@ -445,6 +894,9 @@ main {
 
       @include tablet-mid {
         font-size: 1.05rem;
+      }
+      @include mobile-mini {
+        font-size: 1rem;
       }
     }
     margin: 0.5em -0.8em;
@@ -475,8 +927,13 @@ footer {
     margin: 0 auto;
     padding-bottom: 1px;
 
+
     @include desktop {
       width: 100%;
+
+      @include desktop-mid {
+        width: 100%;
+      }
 
       @include tablet-mid {
         width: 100%;
@@ -488,10 +945,24 @@ footer {
       width: 90%;
       margin: 3em auto;
 
+      @include mobile-mid {
+        border-top: 1px solid lightblue;
+        width: 100%;
+        margin-top: 2.3%;
+        padding-top: 2%;
+      }
+      @include mobile-mini {
+        border-top: 1px solid lightblue;
+        width: 93%;
+        margin-top: 2.3%;
+        padding-top: 2%;
+      }
+
       @include tablet-mid {
         width: 100%;
         border-top: 1px solid lightblue;
-        padding-top: 1em;
+        padding: 1em 0 1em 0;
+        margin: 1.2em auto;
         
       }
 
@@ -502,6 +973,14 @@ footer {
         font-size: 0.95rem;
         letter-spacing: 1px;
 
+        
+
+        @include mobile-mid {
+          letter-spacing: unset;
+        }
+        @include mobile-mini {
+          letter-spacing: unset;
+        }
         @include tablet-mid {
           font-size: 1rem;
         }
@@ -517,16 +996,40 @@ footer {
       @include tablet-mid {
         font-size: 1.2rem;
         display:grid;
-        width: 25%;
+        width: 30%;
         align-items: center;
-        margin: 0 33% 0;
+        margin: 0 28% 0;
         padding-top: 3em;
         border-bottom: unset;
+      }
+      @include mobile-mid {
+        font-size: 1.05rem;
+        display:grid;
+        width: 50%;
+        margin: 0 auto;
+        padding-top: 3em;
+        border-bottom: unset;
+
+      }
+      @include mobile-mini {
+        font-size: 1.05rem;
+        display:grid;
+        width: 60%;
+        margin: 0 7%;
+        padding-top: 2em;
+        border-bottom: unset;
+
       }
 
       #contact-id{
         margin-left: -2.5em;
 
+        @include mobile-mid {
+          margin-left: 0;
+        }
+        @include mobile-mini {
+          margin-left: 0;
+        }
         @include tablet-mid {
           margin-left: 0;
         }
@@ -536,15 +1039,35 @@ footer {
         padding: 2.5em;
         width: 100%;
 
+        @include desktop-mid {
+          padding: 2em 1em 2em 1em;
+        }
+
+
+        @include mobile-mid {
+          width: 70%;
+          text-align: center;
+         float: center;
+         margin-top: -15%;
+         padding: unset;
+          
+        }
+        @include mobile-mini {
+          width: 90%;
+          text-align: center;
+         float: center;
+         margin-top: -15%;
+         padding: unset;
+          
+        }
         @include tablet-mid {
           width: 90%;
           text-align: center;
          float: center;
-         padding: 0;
-           
+         margin-top: -22.5%;
+         padding: unset;
+          
         }
-
-        
 
         @include desktop {
           padding: 2em 1em 2em 1em;
@@ -586,6 +1109,24 @@ header {
     background-size: 100%;
     padding: 11.3em 20em;
 
+    @include mobile-mid {
+      padding: 8% 12%;
+    }
+    @include mobile-mini {
+      padding: 8% 12%;
+    }
+
+    @include desktop-mid {
+      padding: 8em 12em;
+      @include desktop-mini-1 {
+        padding: 15em 20em;
+      }
+    }
+
+    @include tablet {
+      padding:8em 10em;
+      }
+
     @include tablet-mid {
       padding:8em 10em;
     }
@@ -594,6 +1135,10 @@ header {
       text-align: center;
       color: white;
 
+      @include mobile-mini {
+        width: 100%;
+        font-size: 1.7rem;
+      }
       @include tablet-mid {
         width: 100%;
         font-size: 1.8rem;
@@ -608,15 +1153,61 @@ main {
     border-bottom: 1px solid lightgray;
     padding-bottom: 2em;
 
+    @include mobile-mid {
+      margin: -5% -3% 0;
+    }
+    @include mobile-mini {
+      margin: -5% -3% 0;
+    }
+
+    @include desktop-mid {
+      margin-top: -4.5%;
+
+      @include desktop-mini-1 {
+        margin-top: -10%;
+       }
+    }
+
+    @include tablet {
+      margin-top: -14%;
+    } 
+
     .h2{
+
+      @include desktop-mid {
+        padding-top: 2em;
+
+        @include desktop-mini-1 {
+          padding-top: 5.5em;
+        }
+      }
+
+      @include tablet {
+        padding-top: 3.8em;
+      } 
       @include tablet-mid {
         padding-top: 3.8em;
       } 
     }
 
     .imgdivklass{
+
+      @include mobile-mid {
+        width: 6.7%!important;
+      }
+      @include mobile-mini {
+        width: 10%!important;
+      }
+
+      @include desktop-mid {
+        width: 5%!important;
+      }
+
+      @include tablet {
+        width: 6.8%!important;
+      } 
       @include tablet-mid {
-        width: 7%!important;
+        width: 6%!important;
       }
     }
 
@@ -629,6 +1220,17 @@ main {
       line-height: 1.8em;
       margin: 2em $margin-left 0 $margin-left;
 
+      @include mobile-mini {
+        width: 92.8%;
+        text-align: unset;
+        margin-left: 1.8%;
+      }
+      @include mobile-mid {
+        width: 92.8%;
+        text-align: unset;
+        margin-left: 1.8%;
+      }
+
       @include tablet-mid {
         margin: 1em $margin-left 0 $margin-left;
         font-size: 1.2rem;
@@ -640,8 +1242,25 @@ main {
       display: flex;
       margin: 0 $margin-left 0 $margin-left;
 
+      @include desktop-mid {
+        width: 95%;
+      }
+      @include tablet {
+        width: 95%;
+      }
+
       @include tablet-mid {
         display:grid;
+      }
+      @include mobile-mid {
+        display:grid;
+        width: 90%;
+        margin-left: 0%;
+      }
+      @include mobile-mini {
+        display:grid;
+        width: 90%;
+        margin-left: 0%;
       }
 
       p {
@@ -653,15 +1272,40 @@ main {
           margin: 1.5em auto;
          
         }
+        @include mobile-mid {
+          width: 100%;
+          margin: 5% -5% 0;
+         
+        }
+        @include mobile-mini {
+          width: 100%;
+          margin:5% -6% 0;
+         
+        }
       }
 
       img {
         width: 20%;
         margin-top: 0.3em;
 
+        @include desktop-mid {
+          width: 40%;
+        }
+        @include tablet {
+          width: 40%;
+        }
+
         @include tablet-mid {
           width: 53%;
           margin: 0.2em auto;
+        }
+        @include mobile-mid {
+          width: 53%;
+          margin: 0.2em auto;
+        }
+        @include mobile-mini {
+          width: 55%;
+          margin-left:20%;
         }
       }
     }
@@ -670,9 +1314,28 @@ main {
       display: flex;
       margin: 0 $margin-left 0 $margin-left;
 
+      @include desktop-mid {
+        width: 95%;
+      }
+      @include tablet {
+        width: 95%;
+      }
+
       @include tablet-mid {
         display: grid;
       }
+
+      @include mobile-mid {
+        display:grid;
+        width: 90%;
+        margin-left: 0%;
+      }
+      @include mobile-mini {
+        display:grid;
+        width: 90%;
+        margin-left: 0%;
+      }
+
 
       p {
         border-bottom: unset;
@@ -682,16 +1345,41 @@ main {
           width: 100%;
           margin: 0 auto;
         }
+        @include mobile-mid {
+          width: 100%;
+          margin-left: -5%;
+        }
+        @include mobile-mini {
+          width: 100%;
+          margin-left: -6%;
+        }
       }
 
       img {
         width: 20%;
         margin-top: -3em;
 
+        @include desktop-mid {
+          width: 40%;
+        }
+        @include tablet{
+          width: 40%;
+        }
+
         @include tablet-mid {
           width: 53%;
           margin: 0 auto;
           padding-bottom: 2em;
+        }
+        @include mobile-mid {
+          width: 53%;
+          margin: 0 auto;
+          padding-bottom: 2em;
+        }
+        @include mobile-mini {
+          width: 55%;
+          margin-left:20%;
+          padding: 1em 0 2em 0;
         }
       }
     }
@@ -701,6 +1389,12 @@ main {
 // Contact Us page styling:
 
 header {
+  .contact-nav {
+    @include desktop-mid {
+        margin-top: 0.1%;
+  
+      }
+  }
 
   #contact {
     color: $maincolor;
@@ -719,10 +1413,21 @@ header {
     margin: 0 auto;
     justify-content: space-around;
 
+
     @include tablet-mid {
       display: grid;
       width: 92%;
       margin: 0 auto;
+    }
+    @include mobile-mid {
+      display: grid;
+      width: 92%;
+      margin: -25% auto;
+    }
+    @include mobile-mini {
+      display: grid;
+      width: 95%;
+      margin: -25% 1.3% 0 0;
     }
 
     input {
@@ -732,9 +1437,32 @@ header {
       border: 1px solid $maincolor;
       margin-bottom: 2em;
 
+      @include desktop-mini-1 {
+        font-size: 1rem;
+       }
+
+      @include desktop-mid {
+        padding: 0.8em 19.5em 0.8em 0.5em;
+      }
+      @include tablet {
+        padding: 0.8em 19.5em 0.8em 0.5em;
+      }
+
       @include tablet-mid {
         padding: 0.8em 19.5em 0.8em 0.5em;
         font-size: 1.04rem;
+      }
+      @include mobile-mid {
+        padding: 0.8em 12.5em 0.8em 0.5em;
+        width: 42%;
+        margin-left: 0.7%;
+    
+      }
+      @include mobile-mini {
+        padding-right: 13%;
+        width: 77.5%;
+        margin-left: -3.2%;
+    
       }
 
       &:focus {
@@ -749,9 +1477,24 @@ header {
       outline: none;
       border: 1px solid $maincolor;
       margin-bottom: 0.5em;
+      
+
+      @include desktop-mini-1 {
+        font-size: 1.07rem;
+       }
 
       @include tablet-mid {
         font-size: 1.1rem;
+        }
+      @include mobile-mid {
+        width: 78%;
+        padding-right: 13%;
+        }
+      @include mobile-mini {
+        width: 78%;
+        height: 40%;
+        padding-right: 13%;
+        margin-left: -3.2%;
         }
 
       &:focus {
@@ -767,11 +1510,27 @@ header {
       width: 25%;
       margin: 0 38% 20%;
       cursor: pointer;
+      box-shadow: 0 0.1em 0 gray;
 
+      @include desktop-mid {
+        width: 30%;
+        margin-bottom: 67.5%;
+
+      }
       @include tablet-mid {
         width: 30%;
         margin: 1% 36% 20%;
         font-size: 1.1rem;
+      }
+      @include mobile-mid {
+        width: 30%;
+        margin: 1% 32% 65%;
+        font-size: 1rem;
+      }
+      @include mobile-mini {
+        width: 30%;
+        margin: 1% 30% 40%;
+        font-size: 0.9rem;
       }
 
       &:active {
@@ -787,9 +1546,22 @@ header {
       font-size: 1.8rem;
       width: 100%;
 
+      @include tablet {
+        font-size: 1.75rem;
+      }
+
       @include tablet-mid {
         color: white;
         margin-top: -2em;
+      }
+      @include mobile-mid {
+        width: 60%;
+        margin: 5% auto;
+      }
+      @include mobile-mini {
+        width: 100%;
+        font-size: 1.7rem;
+        margin: 5% -5%;
       }
     }
 
@@ -797,9 +1569,27 @@ header {
       width: 15%;
       padding-left: 8em;
 
+      @include desktop-mid {
+        padding-left: 40%;
+        width: 18%;
+      }
+
+      @include tablet {
+        padding-left: 35%;
+        width: 25%;
+      }
+
       @include tablet-mid {
         padding-left: 45%;
         width: 10%;
+      }
+      @include mobile-mid {
+        padding-left: 43.5%;
+        width: 12%;
+      }
+      @include mobile-mini {
+        padding-left: 38.5%;
+        width: 12%;
       }
     }
 
@@ -808,12 +1598,39 @@ header {
       width: 100%;
       font-size: 1.2rem;
 
+      @include desktop-mini-1 {
+        font-size: 1.4rem;
+      }
+
+      @include desktop-mid {
+        background-color: black;
+      }
+      @include tablet {
+        font-size: 1.1rem;
+        background-color: black;
+      }
+
       @include tablet-mid {
         font-size: 1.3rem;
         text-align: center;
         background-color: black;
         width: 70%;
         margin: 4% auto;
+      }
+      @include mobile-mid {
+        text-align: center;
+        background-color: black;
+        width: 100%;
+        margin: 4% -4% 6%;
+        
+      }
+      @include mobile-mini {
+        text-align: center;
+        background-color: black;
+        width: 100%;
+        font-size: 1.02rem;
+        margin: 4% -8% 6%;
+        
       }
     }
   }
@@ -848,12 +1665,37 @@ header {
     width: 50%;
     margin: 0 auto;
 
-    @include tablet-mid {
+    @include desktop-mid {
       width: 100%;
+      margin-left: 5%;
+    }
+    @include tablet {
+      width: 100%;
+    }
+
+    @include tablet-mid {
+      width: 85%;
+      margin-left: 1%;
+    }
+    @include mobile-mid {
+      width: 83%;
+      margin-left: 0.5%;
+    }
+    @include mobile-mini {
+      width: 85%;
+     float: center;
     }
 
     #assign {
       padding-right: 11.2em;
+
+      @include mobile-mid {
+        padding-right: 5.8em;
+      }
+      @include mobile-mini {
+        padding-right: 10%;
+      }
+      
     }
 
     select {
@@ -863,6 +1705,17 @@ header {
       margin-bottom: 2em;
       box-shadow: 0 0.1em 0 gray;
       border: 1px solid lightblue;
+
+      @include mobile-mid {
+        padding: 0.8em 4.5em 0.8em 0.5em;
+      }
+      @include mobile-mini {
+        padding-right: 3%;
+      }
+
+      @include desktop-mini-1 {
+        font-size: 1.1rem;
+       }
     }
 
     input {
@@ -874,6 +1727,19 @@ header {
       border: 1px solid lightblue;
       margin-bottom: 2em;
 
+      @include desktop-mini-1 {
+        font-size: 1.1rem;
+        width: 56%;
+       }
+      @include mobile-mid {
+        padding: 0.8em 11em 0.8em 0.5em;
+        width: 56%;
+       }
+      @include mobile-mini {
+        padding-right: 42%;
+        width: 56%;
+       }
+
       &:focus {
         border-color: $accentcolor;
       }
@@ -884,6 +1750,27 @@ header {
       margin: -5.5% -4% 5%;
       line-height: 1.3em;
       text-align: center;
+
+      @include desktop-mini-1 {
+        font-size: 1rem;
+        padding-top: 5%;
+       }
+
+      @include desktop-mid {
+        margin: -5.5% -5.3% 5%;
+        width: 85%;
+      }
+
+      @include mobile-mid {
+        width:100%;
+        text-align: unset;
+        margin-left: -7.5%;
+      }
+      @include mobile-mini {
+        width:100%;
+        text-align: unset;
+        margin-left: -10%;
+      }
 
       a {
         color: $maincolor;
@@ -900,6 +1787,23 @@ header {
       border: 1px solid lightblue;
       margin-bottom: 0.5em;
 
+      @include mobile-mini {
+        width: 56%;
+        padding-right: 43%;
+        }
+
+      @include desktop-mini-1 {
+        font-size: 1.3rem;
+        padding-right: 20.5em;
+       }
+      @include mobile-mid {
+        @include mobile-mid {
+          width: 86%;
+          padding-right: 13%;
+          }
+        
+       }
+
       &:focus {
         border-color: $accentcolor;
       }
@@ -914,6 +1818,36 @@ header {
       margin: 2% 33% 20%;
       cursor: pointer;
 
+      @include mobile-mid {
+      font-size: 1rem;
+      padding: 0.5em;
+      width: 30%;
+    
+      }
+      @include mobile-mini {
+      font-size: 0.98rem;
+      padding: 0.5em;
+      width: 35%;
+    
+      }
+
+      @include tablet-mid {
+       margin: 2% 39% 20%;
+    
+      }
+      @include mobile-mid {
+       margin: 2% 39% 20%;
+    
+      }
+
+      @include desktop-mini-1 {
+        font-size: 1.2rem;
+       }
+
+      @include desktop-mid {
+        margin: 2% 29% 20%;
+        }
+
       &:active {
         background-color: white;
         border: 2px solid $maincolor;
@@ -926,11 +1860,50 @@ header {
       text-align: center;
       font-size: 1.8rem;
       width: 100%;
+
+      @include desktop-mid {
+        width: 88%;
+        padding-top: 1em;
+        }
+
+        @include mobile-mid {
+          margin: -4% 1.8%;
+          width: 100%;
+          font-size: 1.65rem;
+
+      
+        }
+        @include mobile-mini {
+          margin: -4% 1.7%;
+          width: 100%;
+          font-size: 1.7rem;
+
+      
+        }
     }
 
     img {
       width: 7%;
       padding-left: 45%;
+
+      @include mobile-mid {
+        width: 12%;
+        margin: 5% 3.4%;
+      }
+      @include mobile-mini {
+        width: 12%;
+        margin: 5% 3.4%;
+      }
+
+      @include desktop-mid {
+        width: 6%;
+        padding-left: 40%;
+
+        @include desktop-mini-1 {
+          width: 4%;
+          padding-left: 42%;
+         }
+        }
     }
 
     p {
@@ -940,6 +1913,52 @@ header {
       text-align: center;
       font-weight: 600;
       font-size: 1.2rem;
+
+      @include mobile-mid {
+       font-size: 1.08rem;
+        width: 100%;
+      }
+      @include mobile-mini {
+       font-size: 1.08rem;
+        width: 100%;
+      }
+
+      @include desktop-mid {
+        width: 86%;
+        font-size: 1.28rem;
+
+        @include desktop-mini-1 {
+          font-size: 1.45rem;
+         }
+        }
+    }
+  }
+}
+
+.divfooter{
+  #terms{
+    @include desktop-mid {
+      margin-left: -3%;
+    }
+    @include tablet {
+      margin-left: -3%;
+    }
+  }
+  #contribute{
+    @include desktop-mid {
+      margin-right: -6%;
+    }
+    @include tablet {
+      margin-right: -6%;
+    }
+  }
+
+  #contact{
+    @include desktop-mid {
+      padding-right: 5%;
+    }
+    @include tablet {
+      padding-right: 5%;
     }
   }
 }
