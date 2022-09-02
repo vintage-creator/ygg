@@ -107,7 +107,7 @@ function listen() {
           "This is the internet our current web is transitioning to - noted for its decentralized and permissonless state - where users can own their contents."
         )
       );
-      recognition.onspeechend = function (event) {
+      recognition.onspeechend = function () {
         recognition.stop();
       }
     } else if (transcript.includes("Minting", "minting")) {
@@ -116,7 +116,7 @@ function listen() {
           "Minting is the process of generating new tokens on a blockchain. The term 'minting' originates from the analogy to physical currency, in which governments mint coins and print paper money."
         )
       );
-      recognition.onspeechend = function (event) {
+      recognition.onspeechend = function () {
         recognition.stop();
       }
     } else {
@@ -125,7 +125,7 @@ function listen() {
           "You can only search for web3 terms and terminologies."
         )
       );
-      recognition.onspeechend = function (event) {
+      recognition.onspeechend = function () {
         recognition.stop();
       }
       outputArea.innerHTML =
