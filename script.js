@@ -56,7 +56,6 @@ close1.addEventListener("click", () => {
   }
 });
 
-
 hamburger.addEventListener("click", () => {
   if (ul.style.display === "none") {
     ul.style.display = "block";
@@ -72,8 +71,6 @@ closeMenu.addEventListener("click", () => {
   }
 });
 
-
-
 function listen() {
   let inputArea = document.getElementById("input-area");
   let outputArea = document.getElementById("output-area");
@@ -87,29 +84,50 @@ function listen() {
       "NFT otherwise known as Non-Fungible Token is a digital file that is recorded on the blockchain. NFT occurs in various categories, namely: digital art, game assets, music, among others. These can be transferred (i.e. ownership) albeit very unique in its own right in contrast to cryptos which are fungible or interchangeable.";
     let transcript = event.results[0][0].transcript;
     if (
-      transcript.includes("non-fungible token", "NFT", "non fungible token")
+      transcript.includes(
+        "non-fungible token",
+        "nft",
+        "NFT",
+        "non fungible token",
+        "non fungible Token"
+      )
     ) {
       speechSynthesis.speak(new SpeechSynthesisUtterance(response));
+      recognition.onspeechend = function (event) {
+        recognition.stop();
+      }
     } else if (transcript.includes("documentation")) {
       window.open("https://github.com/vintage-creator/ygg");
+      recognition.onspeechend = function (event) {
+        recognition.stop();
+      }
     } else if (transcript.includes("web3", "Web3", "web 3")) {
       speechSynthesis.speak(
         new SpeechSynthesisUtterance(
           "This is the internet our current web is transitioning to - noted for its decentralized and permissonless state - where users can own their contents."
         )
       );
+      recognition.onspeechend = function (event) {
+        recognition.stop();
+      }
     } else if (transcript.includes("Minting", "minting")) {
       speechSynthesis.speak(
         new SpeechSynthesisUtterance(
           "Minting is the process of generating new tokens on a blockchain. The term 'minting' originates from the analogy to physical currency, in which governments mint coins and print paper money."
         )
       );
+      recognition.onspeechend = function (event) {
+        recognition.stop();
+      }
     } else {
       speechSynthesis.speak(
         new SpeechSynthesisUtterance(
           "You can only search for web3 terms and terminologies."
         )
       );
+      recognition.onspeechend = function (event) {
+        recognition.stop();
+      }
       outputArea.innerHTML =
         "You can only search for web3 terms and terminologies.";
     }

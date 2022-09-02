@@ -742,6 +742,7 @@ header nav .ul button:active {
   .background-img #main-container {
     width: 90%;
     margin-left: 7%;
+    margin-bottom: 1%;
   }
 }
 
@@ -1103,8 +1104,8 @@ footer .divfooter #divblock {
   footer .divfooter #divblock {
     border-top: 1px solid lightblue;
     width: 93%;
-    margin-top: 2.3%;
-    padding-top: 2%;
+    margin: 1% auto;
+    padding-top: 1%;
   }
 }
 
@@ -1134,6 +1135,7 @@ footer .divfooter #divblock p {
 @media (min-width: 200px) and (max-width: 399px) {
   footer .divfooter #divblock p {
     letter-spacing: unset;
+    font-size: 0.75rem;
   }
 }
 

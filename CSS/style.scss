@@ -671,6 +671,7 @@ header {
     @include mobile-mini {
       width: 90%;
       margin-left: 7%;
+      margin-bottom: 1%;
     }
     @include mobile-mid {
       width: 90%;
@@ -954,8 +955,8 @@ footer {
       @include mobile-mini {
         border-top: 1px solid lightblue;
         width: 93%;
-        margin-top: 2.3%;
-        padding-top: 2%;
+        margin: 1% auto;
+        padding-top: 1%;
       }
 
       @include tablet-mid {
@@ -980,6 +981,7 @@ footer {
         }
         @include mobile-mini {
           letter-spacing: unset;
+          font-size: 0.75rem;
         }
         @include tablet-mid {
           font-size: 1rem;
